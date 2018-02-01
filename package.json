@@ -6,14 +6,6 @@
   "dependencies": {
     "bignumber.js": "^6.0.0"
   },
-  "scripts": {
-    "build": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-stage-2": "^6.24.1"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:cutsin/bn2.git"
