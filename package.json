@@ -1,6 +1,6 @@
 {
   "name": "bn2",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Bignumber.js Wrapper",
   "main": "lib/index.js",
   "dependencies": {
