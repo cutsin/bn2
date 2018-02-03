@@ -28,15 +28,15 @@ class BN extends BigNumber {
   div (...args) { return new BN(super.div(unify.req(...args))) }
   abs (...args) { return new BN(super.abs(unify.req(...args))) }
   pow (...args) { return new BN(super.pow(unify.req(...args))) }
-  round (...args) { return new BN(super.decimalPlaces(unify.req(...args))) }
+  round (...args) { return new BN(super.decimalPlaces(...args)) }
   dp (...args) { return new BN(super.dp(unify.req(...args))) }
   cmp (...args) { return super.comparedTo(unify.req(...args)) }
 
   // Formatting
-  toString (precision = 0, roundType) {
+  toString (precision, roundType) {
     return isNaN(precision) ? super.toString(10) : super.decimalPlaces(precision, roundType).toString(10)
   }
-  toNumber (precision = 0, roundType) {
+  toNumber (precision, roundType) {
     return unify.res(isNaN(precision) ? super.toNumber() : +this.toString(precision, roundType))
   }
   /*
