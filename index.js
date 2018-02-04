@@ -34,10 +34,10 @@ class BN extends BigNumber {
 
   // Formatting
   toString (precision, roundType) {
-    return isNaN(precision) ? super.toString(10) : super.decimalPlaces(precision, roundType).toString(10)
+    return isNaN(precision) ? super.toString(10) : super.decimalPlaces(precision, BN[roundType]).toString(10)
   }
   toNumber (precision, roundType) {
-    return unify.res(isNaN(precision) ? super.toNumber() : +this.toString(precision, roundType))
+    return unify.res(isNaN(precision) ? super.toNumber() : +this.toString(precision, BN[roundType]))
   }
   /*
     new ('123456.780').toFormat() >> 123,456.78
@@ -48,6 +48,9 @@ class BN extends BigNumber {
   toFormat (...args) {
     let isFixed = args.includes('fixed')
     if (isFixed) args.pop()
+    const argLen = args.length
+    const lastArg = args[argLen - 1]
+    if (argLen > 1 && typeof lastArg === 'string') args[argLen - 1] = BN[lastArg]
     let res = super.toFormat(...args)
     if (!isFixed) res = removeIdle(res)
     return unify.res(res)
