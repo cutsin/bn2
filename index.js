@@ -1,14 +1,13 @@
 import BigNumber from 'bignumber.js'
 
-const unexpected = [undefined, null, NaN, Infinity, 'NaN', 'Infinity']
-const invalids = unexpected.concat([''])
+const unexpected = [undefined, null, NaN, Infinity, 'NaN', 'Infinity', '']
 
 const removeIdle = str => {
   return Number(str) === 0 ? '0' : str.replace(/^([+-]?)([\d,]+\.\d*?)0+$/, '$1$2').replace(/\.$/, '')
 }
 
 const unify = {
-  res (res) {return invalids.includes(res) ? '' : res},
+  res (res) {return unexpected.includes(res) ? '' : res},
   req (...args) {
     if (typeof args[0] === 'string') args[0] = args[0].replace(/,/g, '')
     if (unexpected.includes(args[0])) args[0] = 0
