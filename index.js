@@ -36,7 +36,7 @@ class BN extends BigNumber {
     return isNaN(precision) ? super.toString(10) : super.decimalPlaces(precision, BN[roundType]).toString(10)
   }
   toNumber (precision, roundType) {
-    return unify.res(isNaN(precision) ? super.toNumber() : +this.toString(precision, BN[roundType]))
+    return unify.res(isNaN(precision) ? super.toNumber() : +this.toString(precision, roundType))
   }
   /*
     new ('123456.780').toFormat() >> 123,456.78
