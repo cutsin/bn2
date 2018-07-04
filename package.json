@@ -4,7 +4,7 @@
   "description": "A Bignumber.js Wrapper",
   "main": "lib/index.js",
   "dependencies": {
-    "bignumber.js": "^6.0.0"
+    "bignumber.js": "^7.0.2"
   },
   "repository": {
     "type": "git",
