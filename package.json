@@ -2,9 +2,10 @@
   "name": "bn2",
   "version": "1.0.0",
   "description": "A Bignumber.js Wrapper",
-  "main": "lib/index.js",
+  "main": "index.js",
+  "module": "index.js",
   "dependencies": {
-    "bignumber.js": "^7.0.2"
+    "bignumber.js": "^7.2.1"
   },
   "repository": {
     "type": "git",
