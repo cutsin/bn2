@@ -1,6 +1,6 @@
 {
   "name": "bn2",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A Bignumber.js Wrapper",
   "main": "cjs/index.js",
   "module": "mjs/index.js",
