@@ -1,23 +1,22 @@
 {
   "name": "bn2",
-  "version": "1.2.0",
+  "version": "2.0.1",
   "description": "A Bignumber.js Wrapper",
-  "main": "cjs/index.js",
-  "module": "mjs/index.js",
+  "main": "dist/index-cjs.js",
+  "module": "dist/index.mjs",
   "scripts": {
-    "build-mjs": "node_modules/babel-cli/bin/babel.js src --out-dir mjs",
-    "build-cjs": "node_modules/babel-cli/bin/babel.js src --out-dir cjs --presets env,stage-0 --no-babelrc",
-    "build": "npm run build-mjs && npm run build-cjs"
+    "build": "npx rollup -c"
   },
   "dependencies": {
-    "bignumber.js": "^7.2.1"
+    "bignumber.js": "^8.1.1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1"
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "rollup": "1.10.1",
+    "rollup-plugin-babel": "^4.3.2"
   },
+  "browserslist": "ie 11",
   "repository": {
     "type": "git",
     "url": "git@github.com:cutsin/bn2.git"
