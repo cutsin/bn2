@@ -149,12 +149,14 @@ function (_BigNumber) {
   _createClass(BN, [{
     key: "plus",
     value: function plus() {
-      return new BN(_get(_getPrototypeOf(BN.prototype), "plus", this).call(this, unify.req.apply(unify, arguments)));
+      var unified = unify.req.apply(unify, arguments);
+      return unified[0] ? new BN2(_get(_getPrototypeOf(BN.prototype), "plus", this).call(this, unified)) : new BN2(_get(_getPrototypeOf(BN.prototype), "times", this).call(this, 1));
     }
   }, {
     key: "minus",
     value: function minus() {
-      return new BN(_get(_getPrototypeOf(BN.prototype), "minus", this).call(this, unify.req.apply(unify, arguments)));
+      var unified = unify.req.apply(unify, arguments);
+      return unified[0] ? new BN2(_get(_getPrototypeOf(BN.prototype), "minus", this).call(this, unified)) : new BN2(_get(_getPrototypeOf(BN.prototype), "times", this).call(this, 1));
     }
   }, {
     key: "times",

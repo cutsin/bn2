@@ -21,8 +21,14 @@ class BN extends BigNumber {
   }
 
   // Algorithm
-  plus (...args) { return new BN(super.plus(unify.req(...args))) }
-  minus (...args) { return new BN(super.minus(unify.req(...args))) }
+  plus (...args) {
+    const unified = unify.req(...args)
+    return unified[0] ? new BN2(super.plus(unified)) : new BN2(super.times(1))
+  }
+  minus (...args) {
+    const unified = unify.req(...args)
+    return unified[0] ? new BN2(super.minus(unified)) : new BN2(super.times(1))
+  }
   times (...args) { return new BN(super.times(unify.req(...args))) }
   div (...args) { return new BN(super.div(unify.req(...args))) }
   abs (...args) { return new BN(super.abs(unify.req(...args))) }
