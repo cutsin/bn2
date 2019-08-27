@@ -150,13 +150,13 @@ function (_BigNumber) {
     key: "plus",
     value: function plus() {
       var unified = unify.req.apply(unify, arguments);
-      return unified[0] ? new BN2(_get(_getPrototypeOf(BN.prototype), "plus", this).call(this, unified)) : new BN2(_get(_getPrototypeOf(BN.prototype), "times", this).call(this, 1));
+      return !unexpected.includes(unified[0]) ? new BN(_get(_getPrototypeOf(BN.prototype), "plus", this).call(this, unified)) : new BN(_get(_getPrototypeOf(BN.prototype), "times", this).call(this, 1));
     }
   }, {
     key: "minus",
     value: function minus() {
       var unified = unify.req.apply(unify, arguments);
-      return unified[0] ? new BN2(_get(_getPrototypeOf(BN.prototype), "minus", this).call(this, unified)) : new BN2(_get(_getPrototypeOf(BN.prototype), "times", this).call(this, 1));
+      return !unexpected.includes(unified[0]) ? new BN(_get(_getPrototypeOf(BN.prototype), "minus", this).call(this, unified)) : new BN(_get(_getPrototypeOf(BN.prototype), "times", this).call(this, 1));
     }
   }, {
     key: "times",
