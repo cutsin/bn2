@@ -113,6 +113,26 @@ function _get(target, property, receiver) {
   return _get(target, property, receiver || target);
 }
 
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+}
+
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
 var unexpected = [undefined, null, NaN, Infinity, 'NaN', 'Infinity', ''];
 
 var removeIdle = function removeIdle(str) {
@@ -140,17 +160,21 @@ function (_BigNumber) {
   _inherits(BN, _BigNumber);
 
   function BN() {
+    var _getPrototypeOf2;
+
     _classCallCheck(this, BN);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BN).call(this, unify.req.apply(unify, arguments)));
+    return _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(BN)).call.apply(_getPrototypeOf2, [this].concat(_toConsumableArray(unify.req.apply(unify, arguments)))));
   } // Algorithm
 
 
   _createClass(BN, [{
     key: "plus",
     value: function plus() {
+      var _get2;
+
       var unified = unify.req.apply(unify, arguments);
-      return !unexpected.includes(unified[0]) ? new BN(_get(_getPrototypeOf(BN.prototype), "plus", this).call(this, unified)) : new BN(_get(_getPrototypeOf(BN.prototype), "times", this).call(this, 1));
+      return !unexpected.includes(unified[0]) ? new BN((_get2 = _get(_getPrototypeOf(BN.prototype), "plus", this)).call.apply(_get2, [this].concat(_toConsumableArray(unified)))) : new BN(_get(_getPrototypeOf(BN.prototype), "times", this).call(this, 1));
     }
   }, {
     key: "minus",
@@ -161,43 +185,55 @@ function (_BigNumber) {
   }, {
     key: "times",
     value: function times() {
-      return new BN(_get(_getPrototypeOf(BN.prototype), "times", this).call(this, unify.req.apply(unify, arguments)));
+      var _get3;
+
+      return new BN((_get3 = _get(_getPrototypeOf(BN.prototype), "times", this)).call.apply(_get3, [this].concat(_toConsumableArray(unify.req.apply(unify, arguments)))));
     }
   }, {
     key: "div",
     value: function div() {
-      return new BN(_get(_getPrototypeOf(BN.prototype), "div", this).call(this, unify.req.apply(unify, arguments)));
+      var _get4;
+
+      return new BN((_get4 = _get(_getPrototypeOf(BN.prototype), "div", this)).call.apply(_get4, [this].concat(_toConsumableArray(unify.req.apply(unify, arguments)))));
     }
   }, {
     key: "abs",
     value: function abs() {
-      return new BN(_get(_getPrototypeOf(BN.prototype), "abs", this).call(this, unify.req.apply(unify, arguments)));
+      var _get5;
+
+      return new BN((_get5 = _get(_getPrototypeOf(BN.prototype), "abs", this)).call.apply(_get5, [this].concat(_toConsumableArray(unify.req.apply(unify, arguments)))));
     }
   }, {
     key: "pow",
     value: function pow() {
-      return new BN(_get(_getPrototypeOf(BN.prototype), "pow", this).call(this, unify.req.apply(unify, arguments)));
+      var _get6;
+
+      return new BN((_get6 = _get(_getPrototypeOf(BN.prototype), "pow", this)).call.apply(_get6, [this].concat(_toConsumableArray(unify.req.apply(unify, arguments)))));
     }
   }, {
     key: "round",
     value: function round() {
-      var _get2;
+      var _get7;
 
       for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
         args[_key2] = arguments[_key2];
       }
 
-      return new BN((_get2 = _get(_getPrototypeOf(BN.prototype), "decimalPlaces", this)).call.apply(_get2, [this].concat(args)));
+      return new BN((_get7 = _get(_getPrototypeOf(BN.prototype), "decimalPlaces", this)).call.apply(_get7, [this].concat(args)));
     }
   }, {
     key: "dp",
     value: function dp() {
-      return new BN(_get(_getPrototypeOf(BN.prototype), "dp", this).call(this, unify.req.apply(unify, arguments)));
+      var _get8;
+
+      return new BN((_get8 = _get(_getPrototypeOf(BN.prototype), "dp", this)).call.apply(_get8, [this].concat(_toConsumableArray(unify.req.apply(unify, arguments)))));
     }
   }, {
     key: "cmp",
     value: function cmp() {
-      return _get(_getPrototypeOf(BN.prototype), "comparedTo", this).call(this, unify.req.apply(unify, arguments));
+      var _get9;
+
+      return (_get9 = _get(_getPrototypeOf(BN.prototype), "comparedTo", this)).call.apply(_get9, [this].concat(_toConsumableArray(unify.req.apply(unify, arguments))));
     } // Formatting
 
   }, {
@@ -220,7 +256,7 @@ function (_BigNumber) {
   }, {
     key: "toFormat",
     value: function toFormat() {
-      var _get3;
+      var _get10;
 
       for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
         args[_key3] = arguments[_key3];
@@ -232,7 +268,7 @@ function (_BigNumber) {
       var lastArg = args[argLen - 1];
       if (argLen > 1 && typeof lastArg === 'string') args[argLen - 1] = BN[lastArg];
 
-      var res = (_get3 = _get(_getPrototypeOf(BN.prototype), "toFormat", this)).call.apply(_get3, [this].concat(args));
+      var res = (_get10 = _get(_getPrototypeOf(BN.prototype), "toFormat", this)).call.apply(_get10, [this].concat(args));
 
       if (!isFixed) res = removeIdle(res);
       return unify.res(res);
